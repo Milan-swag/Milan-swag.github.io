@@ -1,0 +1,95 @@
+.mainpage-header {
+    font-size: 20px;
+    text-align: center;
+}
+
+.chest-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.chest-row {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Chests */
+.chest-container {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 250px;
+}
+
+.chest-header {
+    text-align: center;
+    width: 100%;
+}
+
+.chest-header h2 {
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+}
+
+.chest-logo {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.chest-logo img {
+    width: 200px;
+}
+
+.chest-purchase-area {
+}
+
+.chest-purchase-button {
+    background-color: #C8FFFE;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    height: 40px;
+    margin: 0 auto;
+    width: 175px;
+}
+
+.chest-purchase-button-text {
+    height: 18px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    text-align: center;
+    width: 100%;
+}
+
+.chest-purchase-button-text a {
+}
+
+.chest-price {
+}
+
+.chest-price p {
+}
+
+/* Chest Colors */
+.epic-chest {
+    color: rgb(140, 0, 255);
+}
+
+.rare-chest {
+    color: rgb(0, 255, 0);
+}
+
+.legendary-chest {
+    color: rgb(231, 161, 0);
+}
+
+.ultra-chest {
+    color: rgb(48, 62, 255);
+}

@@ -1,0 +1,59 @@
+button {
+    cursor: pointer;
+}
+
+.Epische_Kiste_Kaufen {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 50px;
+    width: 150px;
+    background-color: rgb(200, 255, 254);
+    border:1px solid rgb(200, 198, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: 18px;
+    
+}
+
+.Seltene_Kiste_Kaufen {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 50px;
+    width: 150px;
+    background-color: rgb(200, 255, 254);
+    border:1px solid rgb(200, 198, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: 18px;
+
+}
+
+.Legendaere_Kiste_Kaufen {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 50px;
+    width: 150px;
+    background-color: rgb(200, 255, 254);
+    border:1px solid rgb(200, 198, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: 18px;
+
+}
+
+.Ultra_Kiste_Kaufen {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 70px;
+    width: 200px;
+    background-color: rgb(0, 255, 4);
+    border:1px solid rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: 20px;
+
+}
