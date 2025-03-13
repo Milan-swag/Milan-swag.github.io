@@ -1,6 +1,7 @@
 .mainpage-header {
     font-size: 20px;
     text-align: center;
+    width: 100%;
 }
 
 .chest-selection {
@@ -14,8 +15,20 @@
 
 .chest-row {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Abstand zwischen den Elementen */
     margin-bottom: 10px;
     margin-top: 10px;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Abstand zwischen den Elementen */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
 }
 
 /* Chests */
@@ -23,8 +36,7 @@
     border: 1px solid #fff;
     border-radius: 10px;
     height: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 auto;
     width: 250px;
 }
 

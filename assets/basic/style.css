@@ -85,6 +85,8 @@ body {
     height: 60px;
 }
 
+
+
 /* Socials */
 .social-element {
     height: 60px;
@@ -118,10 +120,15 @@ body {
     width: 100%;
 }
 
-.main-section {
+main {
     margin: 0 auto;
     max-width: 1150px;
-    min-width: 825px;
+    min-width: 300px;
+}
+
+.flexible-section {
+    max-width: 1150px;
+    min-width: 300px;
 }
 
 .line-hr-h1-w100 {
@@ -140,7 +147,7 @@ body {
     margin-bottom: 20px;
     margin-top: 20px;
     max-width: 1150px;
-    min-width: 825px;
+    min-width: 300px;
     text-align: center;
 }
 
