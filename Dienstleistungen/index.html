@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dienstleistungen</title>
+    <link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            align-items: center;
+            font-family: "National Park", sans-serif;
+            justify-content: center; 
+            margin-top: 30px;
+        }
+
+        .overlay {
+            width: 500px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        button {
+            background-color: #ccc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .footing {
+            text-align: center;
+        }
+
+        .nodecoration {
+            text-decoration: none;
+        }
+
+        .nodecoration:hover {
+            text-decoration: underline;
+        }
+
+        .basic-color {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div>
+            <h1>Meine Dienstleistungen</h1>
+            <p>Hier findest du meine Dienstleistungen im Überblick!</p>
+        </div>
+        <br>
+        <div class="dienstleistungen">
+            <h1>Spülmaschine Ausräumen</h1>
+            <p>2,50€ pro Spülmaschine | Bei mehr als 3 Fächer 1€ pro Fach</p>
+            <p>Buchbar von 9:00-21:00 Uhr</p>
+            <button type="button"><a class="nodecoration basic-color" href="/buchen.html?purchase_type=spülmaschine">Buchen</a></button>
+        </div>
+        <p>&nbsp;</p>
+        <div class="dienstleistungen">
+            <h1>Unkraut Jäten</h1>
+            <p>5,00€ pro 30 min / 9€ pro Stunde| Bei mehr als einer 2 Stunden 12€ pro Stunde</p>
+            <p>Buchbar von 10:00-18:00 Uhr</p>
+            <button type="button"><a class="nodecoration basic-color" href="/buchen.html?purchase_type=unkraut">Buchen</a></button>
+            <p>&nbsp;</p>
+        </div>
+        <div class="dienstleistungen">
+            <h1>Staubsaugen</h1>
+            <p>2,00€ pro 30 min /3,50€ pro Stunde| Bei mehr als einer 1 Stunden 4,50€ pro Stunde</p>
+            <p>Buchbar von 12:00-16:00 Uhr</p>
+            <button type="button"><a class="nodecoration basic-color" href="/buchen.html?purchase_type=staubsaugen">Buchen</a></button>
+        </div>
+        &nbsp;
+        <footer class="footing">
+            <a class="nodecoration basic-color" href="termsofuse/index.html">Terms Of Use</a>
+            <a>•</a>
+            <a class="nodecoration basic-color" href="privacypolicy/index.html">Privacy Policy</a>
+        </footer>
+    </div>
+</body>
+</html>

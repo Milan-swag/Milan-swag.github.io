@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Buchen</title>
+  <link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+  <style>
+    .purchase-section {
+        display: none;
+        width: 500px;
+        height: auto;
+        margin: 0 auto;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    .nodecoration {
+            text-decoration: none;
+        }
+
+        .nodecoration:hover {
+            text-decoration: underline;
+        }
+
+        .basic-color {
+            color: #000;
+        }
+  </style>
+</head>
+<body>
+    <div id="spülmaschine" class="purchase-section">
+        <h1>Dienstleistung Buchen</h1>
+        <h3>Gebuchte Dienstleistung: Spülmaschine Ausräumen</h3>
+        <br>
+        <input type="date"><br><br>ACHTUNG! Dienstleistungen werden nicht am gleichen atag angenommen wie sie augegeben wurden!<br> <br>
+        <input type="time" min="09:00" max="21:00" step="900"><p>Bitte beachte dass die Buchung nur zwischen 9:00 und 21:00 Uhr gebucht werden kann. Alle Buchungen außerhalb der Zeit werden abgelehnt.</p>
+        <input type="tel" name="telefon" placeholder="z. B. 0176 12345678" pattern="^(\+49|0)[1-9][0-9\s\-]{6,}$" required>
+        <br>
+        <br>
+        <form>
+            <label for="strasse">Straße und Hausnummer:</label><br>
+            <input type="text" id="strasse" name="strasse" placeholder="Musterstraße 12" required><br><br>
+        </form>
+        <button type="button"><a class="nodecoration basic-color" href="succes.html">Buchung Abschließen</a></button>
+    </div>
+
+    <div id="staubsaugen" class="purchase-section">
+        <h1>Dienstleistung Buchen</h1>
+        <h3>Gebuchte Dienstleistung: Unkraut Jäten</h3>
+        <br>
+        <input type="date"><br><br>ACHTUNG! Dienstleistungen werden nicht am gleichen atag angenommen wie sie augegeben wurden!<br> <br>
+        <input type="time" min="09:00" max="21:00" step="900"><p>Bitte beachte dass die Buchung nur zwischen 10:00 und 18:00 Uhr gebucht werden kann. Alle Buchungen außerhalb der Zeit werden abgelehnt.</p>
+        <input type="tel" name="telefon" placeholder="z. B. 0176 12345678" pattern="^(\+49|0)[1-9][0-9\s\-]{6,}$" required>
+        <br>
+        <br>
+        <form>
+            <label for="strasse">Straße und Hausnummer:</label><br>
+            <input type="text" id="strasse" name="strasse" placeholder="Musterstraße 12" required><br><br>
+        </form>
+        <button type="button"><a class="nodecoration basic-color" href="succes.html">Buchung Abschließen</a></button>
+    </div>
+
+    <div id="unkraut" class="purchase-section">
+        <h1>Dienstleistung Buchen</h1>
+        <h3>Gebuchte Dienstleistung: Staubsaugen</h3>
+        <br>
+        <input type="date"><br><br>ACHTUNG! Dienstleistungen werden nicht am gleichen atag angenommen wie sie augegeben wurden!<br> <br>
+        <input type="time" min="09:00" max="21:00" step="900"><p>Bitte beachte dass die Buchung nur zwischen 12:00 und 16:00 Uhr gebucht werden kann. Alle Buchungen außerhalb der Zeit werden abgelehnt.</p>
+        <input type="tel" name="telefon" placeholder="z. B. 0176 12345678" pattern="^(\+49|0)[1-9][0-9\s\-]{6,}$" required>
+        <br>
+        <br>
+        <form>
+            <label for="strasse">Straße und Hausnummer:</label><br>
+            <input type="text" id="strasse" name="strasse" placeholder="Musterstraße 12" required><br><br>
+        </form>
+        <button type="button"><a class="nodecoration basic-color" href="succes.html">Buchung Abschließen</a></button>
+    </div>
+
+    <script>
+        function getUrlParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+        }
+
+        function showPurchaseDiv() {
+        const purchaseType = getUrlParameter('purchase_type');
+
+        // Alles ausblenden
+        document.getElementById('spülmaschine').style.display = 'none';
+        document.getElementById('staubsaugen').style.display = 'none';
+        document.getElementById('unkraut').style.display = 'none';
+
+        // Einzelne Prüfung per if
+        if (purchaseType === 'spülmaschine') {
+            document.getElementById('spülmaschine').style.display = 'block';
+        } else if (purchaseType === 'staubsaugen') {
+            document.getElementById('staubsaugen').style.display = 'block';
+        } else if (purchaseType === 'unkraut') {
+            document.getElementById('unkraut').style.display = 'block';
+        }
+        }
+
+        window.onload = showPurchaseDiv;
+    </script>
+</body>
+</html>
