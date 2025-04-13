@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>werte aus...</title>
+    <link rel="icon" href="/assets/icon.png">
+    <style>
+        body {
+            align-items: center;
+            font-family: "National Park", sans-serif;
+            justify-content: center; 
+            margin-top: 30px;
+            background-color: #e6e6e6;
+        }
+
+        .overlay, .overlay2 {
+            max-width: 500px;
+            width: calc(100% - 40px);
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: #fff;
+            word-break: break-word;
+        }
+
+        button {
+            background-color: #cfcfcf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .footing {
+            text-align: center;
+        }
+
+        .nodecoration {
+            text-decoration: none;
+        }
+
+        .nodecoration:hover {
+            text-decoration: underline;
+        }
+
+        .basic-color {
+            color: #000;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+        .popup-content {
+          background-color: white;
+          padding: 10px;
+          max-width: 300px;
+          width: calc(100% - 30px);
+          height: 175px;
+          margin: 0 auto;
+          border: 1px solid black;
+          border-radius: 10px;
+          text-align: center;
+        }
+
+        .hidden {
+          display: none;
+        }
+    </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Deine Eingaben werden verarbeitet...</h1>
+    <br>
+    <p>Bitte warte kurz...</p>
+    <p>Diese Webseite ist noch im Aufbau. Bitte geldulde dich ein wenig!</p>
+    <br>
+    <div id="bossbar-container" style="width: 100%; background-color: #ddd; border-radius: 5px;">
+      <div id="bossbar" style="height: 10px; width: 0%; background-color: #c8c8c8; border-radius: 5px;"></div>
+    </div>
+    <br>
+    <button type="button">
+      <a class="nodecoration basic-color" id="cancelButton">Abbrechen</a>
+    </button>
+
+
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <h2>Möchtest du wirklich abbrechen?</h2>
+        <br>
+        <button onclick="closePopup()"><a class="nodecoration basic-color">Nein</a></button>&nbsp;&nbsp;&nbsp;&nbsp;<button><a  href="/index.html" class="nodecoration basic-color">Ja, abbrechen</a></button>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    const chance = Math.random();
+    const ziel = (chance < 0.7) ? "succes.html" : "failed.html";
+    const duration = 7500;
+    const bossbar = document.getElementById("bossbar");
+    const startTime = Date.now();
+
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      bossbar.style.width = (progress * 100) + "%";
+    }, 50);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      window.location.href = ziel;
+    }, duration);
+
+    const cancelButton = document.getElementById('cancelButton');
+    const popup = document.getElementById('popup');
+
+    cancelButton.addEventListener('click', () => {
+      popup.classList.remove('hidden');
+    });
+
+    function closePopup() {
+      popup.classList.add('hidden');
+    }
+    
+  </script>
+</body>
+
+</html>

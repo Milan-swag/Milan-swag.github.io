@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Buchen</title>
+  <link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/icon.png">
+  <meta name="referrer" content="no-referrer">
+  <style>
+        body {
+            align-items: center;
+            font-family: "National Park", sans-serif;
+            justify-content: center; 
+            margin-top: 30px;
+            background-color: #e6e6e6;
+        }
+
+        .basic-color {
+            color: #000;
+        }
+
+        button {
+            background-color: #1B1D1E;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .nodecoration {
+            text-decoration: none;
+        }
+
+        .nodecoration:hover {
+            text-decoration: underline;
+        }
+
+        
+        .purchase-section {
+            max-width: 500px;
+            width: calc(100% - 40px);
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid #000;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: #fff;
+            word-break: break-word;
+        }
+
+        .spülmaschine, .staubsaugen, .unkraut {
+            background-color: #f3f3f3;
+            border: 1px solid #000;
+            border-radius: 20px;
+            height: auto;
+            margin: 0 auto;
+            max-width: 500px;
+            padding: 20px;
+            width: calc(100% - 40px);
+            word-break: break-word;
+        }
+
+        input {
+            background-color: #f4f4f4;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+            width: calc(100% - 40px);
+        }
+
+        input:focus {
+            border: 1px solid #2C2F31;
+            outline: none;
+        }
+
+        input[type="checkbox"] {
+            align-items: center;
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            height: 22px !important;
+            padding: 5px 10px !important;
+            justify-content: center;
+            position: relative;
+            width: 22px !important;
+        }
+
+        input[type="checkbox"]:checked::before {
+            content: "✔";
+            display: block;
+            font-size: 17px;
+            text-align: center;
+        }
+  </style>
+</head>
+<body>
+    <div  class="purchase-section">
+        <h1>Dienstleistung Buchen</h1>
+        <hr>
+        <div style="height: 10px; width: 100%;"></div>
+        <div id="spülmaschine" style="display: none;">
+            <div> 
+                <h3>Dienstleistung: Spülmaschine entleeren</h3>
+            </div>
+        </div>
+        <div id="staubsaugen" style="display: none;">
+            <div> 
+                <h3>Dienstleistung: Staubsaugen</h3>
+            </div>
+        </div>
+        <div id="unkraut" style="display: none;">
+            <div> 
+                <h3>Dienstleistung: Unkraut jäten</h3>
+            </div>
+        </div>
+        <div id="einfahrt" style="display: none;">
+            <div> 
+                <h3>Dienstleistung: Einfahrt reinigen</h3>
+            </div>
+        </div>
+        <div style="height: 10px; width: 100%;"></div>
+        <hr>
+        <form id="bookingForm" onsubmit="validateForm(event)">
+            <div style="display: none;">
+                <input type="text" id="type" required style="display: none;">
+            </div>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <label for="date">Datum:</label>
+                <input type="date" id="date" required>
+                <p>Bitte beachten Sie, dass die Dienstleistung mindestens 24 Stunden vor dem gewünschten Termin gebucht werden muss.</p>
+            </div>
+            <hr>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <label for="time">Uhrzeit:</label>
+                <input type="time" id="time" step="900" required><br>
+                <p>Bitte beachten Sie, dass die gebuchte Dienstleistung ausschließlich im Zeitraum von 10:00 bis 16:00 Uhr in Intervallen von 15 Minuten erbracht werden kann.</p>
+            </div>
+            <hr>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <label for="street">Straße und Hausnummer:</label><br>
+                <input type="text" id="street" name="street" placeholder="Musterstraße 12" required>
+            </div>
+            <hr>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <label for="name">Vor- und Nachname:</label><br>
+                <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+            </div>
+            <hr>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <label for="email">Email:</label><br>
+                <input id="email" type="email" name="email" placeholder="example@mail.com" required>
+            </div>
+            <hr>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <label for="phone">Telefonnummer:</label><br>
+                <input id="phone" type="tel" name="phone" placeholder="+49 (0) 176 12345678" pattern="^(\+49|0)[1-9][0-9\s\-]{6,}$" required>
+            </div>
+            <hr>
+            <div style="margin-bottom: 15px; margin-top: 15px;">
+                <div style="display: flex;">
+                    <input id="terms" type="checkbox">
+                    <div style="font-size: 10px;">
+                        <a>Mit dem Absenden bestätige ich, dass ich mindestens 18 Jahre alt und voll geschäftsfähig (§ 104 BGB) bin. Ich verstehe, dass dies eine unverbindliche Kaufabsicht darstellt und ein verbindlicher Vertrag erst durch die Annahme des Angebots durch den Anbieter zustande kommt (§§ 145 ff. BGB). Da es sich um eine individuelle Dienstleistung handelt, besteht gemäß § 312g Abs. 2 Nr. 1 BGB kein Widerrufsrecht. Eine Rückerstattung ist ausgeschlossen, außer bei nachweislichem Fehler seitens des Anbieters. Der volle Preis ist ohne Abzüge im Voraus zu zahlen (§ 271 BGB). Mit der Ausführung wird erst nach Zahlungseingang begonnen (§ 320 BGB). Bei verspäteter Zahlung kann sich der Projektstart entsprechend verzögern. Alle Daten werden gemäß DSGVO vertraulich behandelt. Es gilt deutsches Recht, Gerichtsstand ist - sofern zulässig - der Sitz des Anbieters (§ 306 BGB).</a>
+                    </div>
+                </div>
+                <div style="height: 10px; width: 100%;"></div>
+                <div>
+                    <button type="submit">Absenden</button>
+                </div>
+            </div>
+        </form>
+        <div id="errorMessage" style="color: red; text-align: center;"></div>
+        <div id="successMessage" style="color: green; text-align: center;"></div>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const dateInput = document.getElementById("date");
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const isoTomorrow = tomorrow.toISOString().split("T")[0];
+            dateInput.min = isoTomorrow;
+        });
+    
+        function validateForm(event) {
+            event.preventDefault();
+            const purchaseType = document.getElementById("type").value;
+            const dateInput = document.getElementById("date").value;
+            const timeInput = document.getElementById("time").value;
+            const street = document.getElementById("street").value;
+            const phone = document.getElementById("phone").value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const error = document.getElementById("errorMessage");
+            const success = document.getElementById("successMessage");
+            const checkboxTerms = document.getElementById("terms");
+
+            const timeParts = timeInput.split(":");
+            const hour = parseInt(timeParts[0], 10);
+            const minute = parseInt(timeParts[1], 10);
+
+            if (!purchaseType || !dateInput || !timeInput || !street || !phone || !email) {
+                error.innerHTML = `<a>Bitte füllen Sie alle Felder aus.</a>`;
+                setTimeout(() => {
+                    error.innerHTML = ``;
+                }, 3000);
+                return;
+            }
+
+            if (!checkboxTerms.checked) {
+                error.innerHTML = `<a>Sie müssen die Kaufbedingungen akzeptieren.</a>`;
+                setTimeout(() => {
+                    error.innerHTML = ``;
+                }, 3000);
+                return
+            }
+
+
+            const selectedDate = new Date(dateInput);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1);
+    
+            if (selectedDate < tomorrow) {
+                error.innerHTML = `<a>Bitte wählen Sie ein Datum ab morgen.</a>`;
+                setTimeout(() => {
+                    error.innerHTML = ``;
+                }, 3000);
+                return;
+            }
+            
+            if (hour < 10 || hour > 16 || (hour === 16 && minute > 0)) {
+                error.innerHTML = `<a>Bitte wählen Sie eine Uhrzeit zwischen 10:00 und 16:00 Uhr.</a>`;
+                setTimeout(() => {
+                    error.innerHTML = ``;
+                }, 3000);
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                error.innerHTML = `<a>Ungültige E-Mail-Adresse.</a>`;
+                setTimeout(() => {
+                    error.innerHTML = ``;
+                }, 3000);
+                return;
+            }
+    
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            const payload = {
+                date: dateInput,
+                time: timeInput,
+                street: street,
+                phone: phone,
+                type: purchaseType,
+                email: email,
+                name: name
+            };
+    
+            const endpoint = "https://site-api-milan-swag.vercel.app/api/discord";
+    
+            fetch(endpoint, {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    success.innerHTML = `<a>Buchungsanfrage erfolgreich gesendet!</a>`;
+                    setTimeout(() => {
+                        window.open("/result/success.html", "_self");
+                    }, 3000);
+                } else {
+                    error.innerHTML = `<a>Fehler beim Senden der Anfrage.</a>`;
+                    setTimeout(() => {
+                        error.innerHTML = ``;
+                    }, 3000);
+                }
+            })
+            .catch(error => {
+                console.error("Fehler:", error);
+                error.innerHTML = `<a>Fehler beim Senden der Anfrage.</a>`;
+                setTimeout(() => {
+                    error.innerHTML = ``;
+                }, 3000);
+            });
+        }
+    </script>    
+    <script>
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function showPurchaseDiv() {
+            const purchaseType = getUrlParameter('purchase_type');
+            const type = document.getElementById("type");
+            document.getElementById('spülmaschine').style.display = 'none';
+            document.getElementById('staubsaugen').style.display = 'none';
+            document.getElementById('unkraut').style.display = 'none';
+            document.getElementById('einfahrt').style.display = 'none';
+
+            if (purchaseType === 'spülmaschine') {
+                document.getElementById('spülmaschine').style.display = 'block';
+                type.value = "Spülmaschine entleeren";
+            } else if (purchaseType === 'staubsaugen') {
+                document.getElementById('staubsaugen').style.display = 'block';
+                type.value = "Staubsaugen";
+            } else if (purchaseType === 'unkraut') {
+                document.getElementById('unkraut').style.display = 'block';
+                type.value = "Unkraut jäten";
+            } else if (purchaseType === 'einfahrt') {
+                document.getElementById('einfahrt').style.display = 'block';
+                type.value = "Einfahrt reinigen";
+            } 
+        }
+
+        window.onload = showPurchaseDiv();
+    </script>
+    <script>
+        window.onload = () => {
+            console.log("%cThis page was created, improved or partially built by Projekt City!\nLearn more about Projekt City: https://projektcity.github.io/\nThanks! ~itsmarian", "color: #5865f2; font-weight: bold;");
+        };
+    </script>
+</body>
+</html>

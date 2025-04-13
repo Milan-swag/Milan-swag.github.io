@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>fehlgeschlagen</title>
+    <link rel="icon" href="/assets/icon.png">
     <style>
         body {
             align-items: center;
             font-family: "National Park", sans-serif;
             justify-content: center; 
             margin-top: 30px;
+            background-color: #e6e6e6;
         }
 
-        .overlay {
-            width: 500px;
+        .overlay, .overlay2 {
+            max-width: 500px;
+            width: calc(100% - 40px);
             height: auto;
             margin: 0 auto;
             border: 1px solid black;
             border-radius: 20px;
             padding: 20px;
+            background-color: #fff;
+            word-break: break-word;
         }
 
         button {
-            background-color: #ccc;
+            background-color: #cfcfcf;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -30,6 +35,11 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        .footing {
+            text-align: center;
+        }
+
         .nodecoration {
             text-decoration: none;
         }
@@ -45,11 +55,11 @@
 </head>
 <body>
     <div class="overlay">
-        <h1>Deine Bestellung wurde erfolgreich aufgegeben!</h1>
+        <h1>Deine Bestellung ist fehlgeschlagen!</h1>
         <br>
-        <h2>Wir melden uns demnächst per Whats-App</h2>
+        <p>Bitte versuche es in wenigen Minuten erneut.</p>
         <br>
-        <button type="button"><a class="nodecoration basic-color" href="index.html">Zurück zum Start</a></button>
+        <button type="button"><a class="nodecoration basic-color" href="/index.html">Zurück zum Start</a></button>
     </div>
 </body>
 </html>
