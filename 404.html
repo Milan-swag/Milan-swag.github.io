@@ -3,11 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>404 - Page Not Found</title>
+    <style>
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        body {
+            align-items: center;
+            font-family: "National Park", sans-serif;
+            justify-content: center; 
+            margin-top: 30px;
+            background-color: #e6e6e6;
+        }
+
+        .overlay, .overlay2 {
+            max-width: 500px;
+            width: calc(100% - 40px);
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: #fff;
+            word-break: break-word;
+        }
+
+        button {
+            background-color: #cfcfcf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <a>sigma</a>
+    <div class="overlay">
+        <h1>404</h1>
+        <hr>
+        <p>We are very sorry, but the page you requested does not seem to exist on our servers!</p>
+        <p>It is possible that the page has been moved or deleted, or that you have entered an incorrect URL.</p>
+            <hr>
+            <p>In the meantime, you can try to solve the problem yourself, by...</p>
+            <a style="text-decoration: none;">...checking your internet connection?</a><br>
+            <a href="https://githubstatus.com">...checking whether GitHub Pages is down?</a><br>
+            <a style="text-decoration: none;">...resetting your browsers cache? (F5)</a><br>
+            <p>If you have done so and still see this page, then there is nothing more we can do for you. We are very sorry!</p>
+            <hr><br>
+        <button><a href="index.html">Zurück zum Start</a></button>
     </div>
 </body>
 </html>
