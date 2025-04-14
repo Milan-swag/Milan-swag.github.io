@@ -98,9 +98,14 @@
             <br><br>
             <hr>
             <h1>Einfahrt reinigen</h1>
-            <p><del>4,00€</del>  <b>3,50&nbsp;€</b> pro 15 min / <del>6,50€</del> <b>5,00&nbsp;</b>€ pro 30 min | Bei mehr als 30 min <del>5,00€</del> <b>4,50&nbsp;€</b> pro +15 min</p>
+            <p><del>4,00€</del>  <b>3,50&nbsp;€</b> pro 15 min / <del>6,50€</del> <b>5,00&nbsp;</b>€ pro 30 min | Bei mehr als 30 min <del>4,50€</del> <b>3,50&nbsp;€</b> pro +15 min</p>
             <p>Buchbar von 10:00-16:00 Uhr</p>
             <button type="button"><a class="nodecoration basic-color" href="purchase/index.html?purchase_type=einfahrt">Buchen</a></button>
+            <br><br>
+            <hr>
+            <h1>Fahrad reinigen</h1>
+            <p><del>6,50€</del>  <b>6,00&nbsp;€</b> pro Fahrad / Reinigungsmittel werden vom Klienten bereitgestellt!</p>
+            <button type="button"><a class="nodecoration basic-color" href="purchase/index.html?purchase_type=fahrad">Buchen</a></button>
             <br><br>
         </div>
         <hr>
@@ -136,7 +141,7 @@
             // Wenn der Timer abgelaufen ist
             if (verbleibendeZeit <= 0) {
                 clearInterval(interval);
-                document.getElementById("timer").innerHTML = "Der Countdown ist abgelaufen!";
+                document.getElementById("timer").innerHTML = "Der Spring-Sale ist Vorbei!";
             }
         
         }, 1000);

@@ -126,6 +126,11 @@
                 <h3>Dienstleistung: Einfahrt reinigen</h3>
             </div>
         </div>
+        <div id="fahrad" style="display: none;">
+            <div> 
+                <h3>Dienstleistung: Fahrad reinigen</h3>
+            </div>
+        </div>
         <div style="height: 10px; width: 100%;"></div>
         <hr>
         <form id="bookingForm" onsubmit="validateForm(event)">
@@ -283,7 +288,7 @@
                     success.innerHTML = `<a>Buchungsanfrage erfolgreich gesendet!</a>`;
                     setTimeout(() => {
                         window.open("/result/success.html", "_self");
-                    }, 3000);
+                    }, 2000);
                 } else {
                     error.innerHTML = `<a>Fehler beim Senden der Anfrage.</a>`;
                     setTimeout(() => {
@@ -313,6 +318,7 @@
             document.getElementById('staubsaugen').style.display = 'none';
             document.getElementById('unkraut').style.display = 'none';
             document.getElementById('einfahrt').style.display = 'none';
+            document.getElementById('fahrad').style.display = 'none';
 
             if (purchaseType === 'spülmaschine') {
                 document.getElementById('spülmaschine').style.display = 'block';
@@ -326,15 +332,13 @@
             } else if (purchaseType === 'einfahrt') {
                 document.getElementById('einfahrt').style.display = 'block';
                 type.value = "Einfahrt reinigen";
-            } 
+            } else if (purchaseType === 'fahrad') {
+                document.getElementById('fahrad').style.display = 'block';
+                type.value = "Fahrad reinigen";
+            }
         }
 
         window.onload = showPurchaseDiv();
-    </script>
-    <script>
-        window.onload = () => {
-            console.log("%cThis page was created, improved or partially built by Projekt City!\nLearn more about Projekt City: https://projektcity.github.io/\nThanks! ~itsmarian", "color: #5865f2; font-weight: bold;");
-        };
     </script>
 </body>
 </html>
