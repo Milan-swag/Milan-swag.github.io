@@ -52,10 +52,24 @@
         .basic-color {
             color: #000;
         }
+        /* Timer stuff */
         #timer {
             font-size: 30px;
             font-family: Arial, sans-serif;
             margin-top: 20px;
+            font-weight: bold;
+            color: #123456;
+        }
+        .Spring-Sale {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 10px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            background-color: #cfcfcf;
+            padding: 20px;
+            border: 0 solid #000;
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -73,7 +87,7 @@
             <p>Hier findest du meine zu buchende Dienstleistungen im Überblick!</p>
         </div>
         <hr>
-        <div>
+        <div class="Spring-Sale">
             <h2>Spring-Sale!</h2>
             <div id="timer"></div>
         </div>
@@ -135,8 +149,13 @@
             const minuten = Math.floor((verbleibendeZeit % (1000 * 60 * 60)) / (1000 * 60));
             const sekunden = Math.floor((verbleibendeZeit % (1000 * 60)) / 1000);
         
+            const tageFormatiert = String(tage).padStart(2, '0');
+            const stundenFormatiert = String(stunden).padStart(2, '0');
+            const minutenFormatiert = String(minuten).padStart(2, '0');
+            const sekundenFormatiert = String(sekunden).padStart(2, '0');
+
             // Anzeigen der verbleibenden Zeit
-            document.getElementById("timer").innerHTML = `${tage}:${stunden}:${minuten}:${sekunden}`;
+            document.getElementById("timer").innerHTML = `${tageFormatiert}d&nbsp;${stundenFormatiert}:${minutenFormatiert}:${sekundenFormatiert}`;
         
             // Wenn der Timer abgelaufen ist
             if (verbleibendeZeit <= 0) {
