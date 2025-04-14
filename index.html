@@ -52,12 +52,17 @@
         .basic-color {
             color: #000;
         }
+        #timer {
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="overlay2">
         <div>
-            <p><b>Wartungsarbeiten!</b> Es finden vom <b>12. bis zum 14. April </b>Wartungsarbeiten statt!</p> 
+            <p><b>Wartungsarbeiten!</b> Es finden vom <b>12. bis zum 14. April um 22:30 Uhr</b> Wartungsarbeiten statt!</p> 
         </div>
     </div>
     <br>
@@ -67,29 +72,33 @@
             <h1>Meine Dienstleistungen</h1>
             <p>Hier findest du meine zu buchende Dienstleistungen im Überblick!</p>
         </div>
-        
+        <hr>
+        <div>
+            <h2>Spring-Sale!</h2>
+            <div id="timer"></div>
+        </div>
         <hr>
         <div class="dienstleistungen">
             <h1>Spülmaschine Ausräumen</h1>
-            <p>2,50€ pro Spülmaschine / Bei mehr als 3 Fächern (Industrie-Maschine) 1€ pro Fach | Nach 18 Uhr 3,00€ pro Spülmschine / Bei mehr als 3 Fächern (Industrie-Maschine) 1,50€ pro Fach</p>
+            <p><del>2,50€</del> <b>2,00&nbsp;€</b> pro Spülmaschine / Bei mehr als 3 Fächern (Industrie-Maschine) 1€ pro Fach | Nach 18 Uhr <del>3,00€</del> <b>2,50&nbsp;€</b> pro Spülmschine / Bei mehr als 3 Fächern (Industrie-Maschine) <del>1,50€</del> <b>1,00&nbsp;€</b> pro Fach</p>
             <p>Buchbar von 10:00-21:00 Uhr</p>
             <button type="button"><a class="nodecoration basic-color" href="purchase/index.html?purchase_type=spülmaschine">Buchen</a></button>
             <br><br>
             <hr>
             <h1>Unkraut jäten</h1>
-            <p>5,00€ pro 30 min / 9€ pro Stunde| Bei mehr als einer Stunde 12€ pro Stunde</p>
+            <p><del>5,00€</del> <b>4,50&nbsp;€</b> pro 30 min / <del>9€</del> <b>8,00&nbsp;€</b> pro Stunde | Bei mehr als einer Stunde <del>12,00€</del> <b>10,00&nbsp;€</b> pro Stunde</p>
             <p>Buchbar von 10:00-16:00 Uhr</p>
             <button type="button"><a class="nodecoration basic-color" href="purchase/index.html?purchase_type=unkraut">Buchen</a></button>
             <br><br>
             <hr>
             <h1>Staubsaugen</h1>
-            <p>2,00€ pro 30 min /3,50€ pro Stunde| Bei mehr als einer 1 Stunden 4,50€ pro Stunde</p>
+            <p><del>3,00€</del> <b>2,50&nbsp;€</b> pro Geschoss / <del>5,50€</del> <b>4,50&nbsp;€</b> pro 2 Geschosse | Bei mehr als 2 Geschossen <del>3,50€</del> <b>3,00&nbsp;€</b> pro Geschoss</p>
             <p>Buchbar von 10:00-16:00 Uhr</p>
             <button type="button"><a class="nodecoration basic-color" href="purchase/index.html?purchase_type=staubsaugen">Buchen</a></button>
             <br><br>
             <hr>
             <h1>Einfahrt reinigen</h1>
-            <p>3,50€ pro 15 min /5,50€ pro 30 min | Bei mehr als einer 30 min 5,00€ pro Stunde</p>
+            <p><del>4,00€</del>  <b>3,50&nbsp;€</b> pro 15 min / <del>6,50€</del> <b>5,00&nbsp;</b>€ pro 30 min | Bei mehr als 30 min <del>5,00€</del> <b>4,50&nbsp;€</b> pro +15 min</p>
             <p>Buchbar von 10:00-16:00 Uhr</p>
             <button type="button"><a class="nodecoration basic-color" href="purchase/index.html?purchase_type=einfahrt">Buchen</a></button>
             <br><br>
@@ -104,5 +113,33 @@
             <h3>© 2025 by Milan Düttra</h3>
         </footer>
     </div>
+    <script>
+        // Das Ziel-Datum (z.B. Neujahr)
+        const zielDatum = new Date("2025-04-30T23:59:59").getTime();
+        
+        // Update der Uhr jede Sekunde
+        const interval = setInterval(function() {
+        
+            // Holen des aktuellen Datums und der verbleibenden Zeit
+            const jetzt = new Date().getTime();
+            const verbleibendeZeit = zielDatum - jetzt;
+        
+            // Berechnen der verbleibenden Tage, Stunden, Minuten und Sekunden
+            const tage = Math.floor(verbleibendeZeit / (1000 * 60 * 60 * 24));
+            const stunden = Math.floor((verbleibendeZeit % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minuten = Math.floor((verbleibendeZeit % (1000 * 60 * 60)) / (1000 * 60));
+            const sekunden = Math.floor((verbleibendeZeit % (1000 * 60)) / 1000);
+        
+            // Anzeigen der verbleibenden Zeit
+            document.getElementById("timer").innerHTML = `${tage}:${stunden}:${minuten}:${sekunden}`;
+        
+            // Wenn der Timer abgelaufen ist
+            if (verbleibendeZeit <= 0) {
+                clearInterval(interval);
+                document.getElementById("timer").innerHTML = "Der Countdown ist abgelaufen!";
+            }
+        
+        }, 1000);
+        </script>
 </body>
 </html>
